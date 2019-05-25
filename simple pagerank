@@ -1,0 +1,9 @@
+import networkx as nx
+# 创建有向图
+G = nx.DiGraph() 
+# 有向图之间边的关系
+edges = [("A", "B"), ("A", "C"), ("A", "D"), ("B", "A"), ("B", "D"), ("C", "A"), ("D", "B"), ("D", "C")]
+for edge in edges:
+    G.add_edge(edge[0], edge[1]) #增加边
+pagerank_list = nx.pagerank(G, alpha = 0.85) #alpha为阻尼因子，取1时是pagerank的简化模型，取0.85表示有15%概率直接访问网址
+print("pagerank 值是：", pagerank_list)
